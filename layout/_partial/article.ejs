@@ -23,7 +23,10 @@
     <div class="article-entry" itemprop="articleBody">
       <% if (post.excerpt && index){ %>
         <%- post.excerpt %>
-      <% } else { %>
+      <% } else { %>      
+        <% if (post.type === "tagcloud"){ %>
+            <%- partial('tagcloud') %>    
+        <% } %>      
         <%- post.content %>
       <% } %>
     </div>
@@ -49,6 +52,10 @@
     <%- partial('post/nav') %>
   <% } %>
 </article>
+
+<% if (!index && ((post.toc != false && !is_page() && theme.toc) || post.toc)){ %>
+    <div id="toc-base"><%- partial('_partial/toc') %></div>
+<% } %>
 
 <% if (!index && theme.share_jia){ %>
 <%- partial('post/share_jia') %>

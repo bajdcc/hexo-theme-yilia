@@ -1,15 +1,23 @@
 <%- partial('_partial/head') %>
 <body>
+  <% if (theme.mapv.on) { %>
+  <div class="intro-header">
+    <canvas class="canvas" style="width:100%;height:100%;"></canvas>
+  </div>
+  <% } %>
   <div id="container">
     <div class="left-col">
-    <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
+      <%- partial('_partial/left-col', null, {cache: !config.relative_link}) %>
     </div>
     <div class="mid-col">
       <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
-      <div class="body-wrap"><%- body %></div>
+       <div class="body-wrap"><%- body %></div>
       <%- partial('_partial/footer') %>
     </div>
     <%- partial('_partial/after-footer') %>
   </div>
+  <% if (theme.mapv.on) { %>
+  <span id="intro_title" class="intro-message-hidden"><%- theme.mapv.sequence %></span>
+  <% } %>
 </body>
 </html>

@@ -149,6 +149,9 @@ define([], function(){
 			combine();
 			bindDOM();
 			resetTags();
+            $('.intro-header').remove();
+            $("#container").css("opacity",'1');
+            $("body").scroll();
 		}
 	}
 })

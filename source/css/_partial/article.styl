@@ -1,3 +1,79 @@
+/*toc*/
+#tocButton {
+    position: fixed;
+    border: none;
+    left: left-col-width - 80px;
+    top: toc-top + 7;
+    background: none;
+    font-size: .9em;
+    font-weight: bold;
+    color: lightgray;
+    cursor: pointer
+    font-family: inherit;
+    outline: none; /*Remove button border when clicked.*/
+    -webkit-appearance: none; /*Remove iOS button style*/
+    &:hover {
+        color: #88acdb;
+    }
+}
+.toc-article {
+  position: fixed;
+  width: left-col-width - 70px;
+  top: toc-top;
+  bottom: 1em;
+  left: 0;
+  margin-left: 0em;
+  padding: 6px 10px 10px 50px;
+  border-radius: 2.8%;
+  overflow: auto;
+}
+#toc-base {
+    opacity: 0;
+    transition: opacity ease 1s;
+} 
+#toc {
+    float: right;
+    font-size: .9em;
+    line-height: 1.65em;    
+    a {
+        color: gray;
+        &:visited {
+            color: rgba(244, 131, 133, 1);
+        } 
+        &:hover {
+            color: #88acdb;
+            text-decoration: none;
+        }
+    }
+    li:hover {
+        background: none;
+        li:hover {
+            background: rgba(158, 188, 226, .21);
+        }
+    }
+    .toc-title {
+        font-weight: bold;
+        color: gray;
+    }
+    .toc {
+        padding: .7em;
+        padding-right: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+    ol {
+        margin-left: 0;
+    }
+    .toc-child {
+        padding-left: 1.25em;
+        margin: 4px 0; 
+    }
+    .toc-link:hover {
+        background: rgba(158, 188, 226, .21);
+    }
+}
+
 .body-wrap{
   margin-bottom: 80px;
 }
@@ -145,7 +221,7 @@
     margin: 0 3px;
     background: #ddd;
     border: 1px solid #ccc;
-    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+    font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
     word-wrap: break-word;
     font-size: 14px;
   }
@@ -191,14 +267,14 @@
     }
   }
   h1{
-    margin-top: 30px;
+    margin-top: 40px;
+    border-bottom: 1px solid #ddd;
   }
   h2{
-    margin-top: 20px;
+    margin-top: 30px;
     font-weight: 300;
     color: #574C4C;
     padding-bottom: 5px;
-    border-bottom: 1px solid #ddd;
   }
   h3,h4,h5,h6{
     margin-top: 20px;
@@ -206,7 +282,22 @@
     color: #574C4C;
     padding-bottom: 5px;
     border-bottom: 1px solid #ddd;
-  }
+  }    
+
+    h1, 
+    h2{
+        text-align: center;
+    }
+
+    h2:after{
+        border-bottom: 1px solid #2f2f2f;
+        content: '';
+        width: 100px;
+        display: block;
+        margin: 0 auto;
+        height: 1px;
+    }
+    
   video{
     max-width: 100%;
   }

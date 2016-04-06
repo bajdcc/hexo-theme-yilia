@@ -2,16 +2,17 @@
 menu:
   主页: /
   所有文章: /archives
+  标签云: /tags
   # 随笔: /tags/随笔
 
 # SubNav
 subnav:
-  github: "#"
-  weibo: "#"
-  rss: "#"
-  zhihu: "#"
+  github: "https://github.com/bajdcc"
+  #weibo: "#"
+  rss: "/atom.xml"
+  #zhihu: "#"
   #douban: "#"
-  #mail: "#"
+  mail: "mailto:bajdcc741@gmail.com"
   #facebook: "#"
   #google: "#"
   #twitter: "#"
@@ -20,9 +21,9 @@ subnav:
 rss: /atom.xml
 
 # Content
-excerpt_link: more
+excerpt_link: 阅读全文
 fancybox: true
-mathjax: true
+mathjax: false
 
 # 是否开启动画效果
 animate: true
@@ -31,17 +32,16 @@ animate: true
 open_in_new: false
 
 # Miscellaneous
-google_analytics: ''
-favicon: /favicon.png
+favicon: /favicon.ico
 
 #你的头像url
-avatar:
+avatar: /avatar.jpg
 #是否开启分享
-share_jia: true
+share_jia: false
 share_addthis: false
 #是否开启多说评论，填写你在多说申请的项目名称 duoshuo: duoshuo-key
 #若使用disqus，请在博客config文件中填写disqus_shortname，并关闭多说评论
-duoshuo: true
+duoshuo: false
 #是否开启云标签
 tagcloud: true
 
@@ -49,16 +49,51 @@ tagcloud: true
 #不开启——
 #friends: false
 #开启——
-friends:
-  奥巴马的博客: http://localhost:4000/
-  卡卡的美丽传说: http://localhost:4000/
-  本泽马的博客: http://localhost:4000/
-  吉格斯的博客: http://localhost:4000/
-  习大大大不同: http://localhost:4000/
-  托蒂的博客: http://localhost:4000/
+friends: 
+  技术博客: http://bajdcc.cnblogs.com
+  六班主页: https://wp-bajdcc.rhcloud.com
 
 #是否开启“关于我”。
 #不开启——
-#aboutme: false
+aboutme: false
 #开启——
-aboutme: 我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…
+#aboutme: 我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…
+
+#### Analytics
+google_analytics: UA-74508910-1
+
+# Table of contents | 文章目录
+toc: true
+
+# 目录中标题不换行
+# Keep TOC title on the same line | 
+toc_nowrap: false
+
+# 不蒜子网站计数设置
+# http://ibruce.info/2015/04/04/busuanzi/
+visit_counter:
+  on: true
+  site_visit: true
+  page_visit: true
+
+# GitHub Repo Widget
+# https://github.com/hustcc/GitHub-Repo-Widget.js
+github_widget: true
+
+# 左边栏宽度 px
+left_col_width: 300
+
+# Progress Bar | 页面加载进度条
+# Demo: http://github.hubspot.com/pace/docs/welcome/
+# type: barber-shop|big-counter|bounce|center-atom|center-circle|
+#       center-radar|center-simple|corner-indicator|flash|flat-top|
+#       loading-bar|mac-osx|minimal
+# color: black|blue|green|orange|pink|purple|red|silver|white|yellow|
+progressBar:
+  on: true
+  
+# mapv
+# mapv.baidu.com - intro particular effect
+mapv:
+  on: true
+  sequence: "#time|欢迎光临！|#countdown 3|| "

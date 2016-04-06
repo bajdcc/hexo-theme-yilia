@@ -1,5 +1,16 @@
 define([], function(){
 
+        if (location.pathname === '/') {
+            $("#container").css("display",'none');
+            $('<audio src="/media/intro.mp3" autoplay="autoplay"></audio>').appendTo($('body'));
+            require(['/js/shape-shifter.js'], function(S){
+                S.init();
+            });
+        } else {
+            $('.intro-header').remove();
+            $("#container").css("opacity",'1');
+        }
+        
 	var Tips = (function(){
 
 		var $tipBox = $(".tips-box");
@@ -87,14 +98,18 @@ define([], function(){
 			Tips.hide();
 		});
 	}
-
-	
+    
+    var mapv = function() {
+        
+        setTimeout(function(){$("#toc-base").css("opacity", '1');}, 500);
+    }	
 
 	return {
 		init: function(){
 			resetTags();
 			bind();
 			Tips.init();
+            mapv();
 		}
 	}
 });
