@@ -101,8 +101,69 @@ define([], function(){
     
     var mapv = function() {
         
-        setTimeout(function(){$("#toc-base").css("opacity", '1');}, 500);
+        setTimeout(function(){
+            $("#toc-base").css("opacity", '1');            
+        }, 500);
     }	
+
+
+    var nav = function() {
+        $(document).ready(function () {
+            
+            var tocSelector = '#toc';
+            var $tocSelector = $(tocSelector);
+            var activeCurrentSelector = '.active-current';
+
+            $tocSelector
+            .on('activate.bs.scrollspy', function () {
+                var $currentActiveElement = $(tocSelector + ' .active').last();
+
+                removeCurrentActiveClass();
+                $currentActiveElement.addClass('active-current');
+
+                $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+            })
+            .on('clear.bs.scrollspy', function () {
+                removeCurrentActiveClass();
+            });
+
+            function removeCurrentActiveClass () {
+            $(tocSelector + ' ' + activeCurrentSelector)
+                .removeClass(activeCurrentSelector.substring(1));
+            }
+
+            function processTOC () {
+            getTOCMaxHeight();
+            toggleTOCOverflowIndicators();
+            }
+
+            function getTOCMaxHeight () {
+            return $('#toc').height();
+            }
+            
+            $('body').scrollspy({ target: tocSelector });
+            $(window).on('resize', function () {
+            if ( $('.toc-article').length !== 0 ) {
+                processTOC();
+            }
+            });
+
+            $('body').scrollspy({ target: "#toc" });
+            onScroll($tocSelector);
+
+            function onScroll (element) {
+            element.on('mousewheel DOMMouseScroll', function (event) {
+                var oe = event.originalEvent;
+                var delta = oe.wheelDelta || -oe.detail;
+                var self = this;
+
+                this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+                event.preventDefault();
+            });
+            }
+
+        });
+    }
 
 	return {
 		init: function(){
@@ -110,6 +171,7 @@ define([], function(){
 			bind();
 			Tips.init();
             mapv();
+            nav();
 		}
 	}
 });

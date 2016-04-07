@@ -45,6 +45,21 @@
             text-decoration: none;
         }
     }
+    .active > a {        
+        color: #03a9f4;
+    }
+    .toc .toc-child {
+        display:none;
+    }
+    .toc .active .toc-child {
+        display:block;
+    }
+    .toc .active-current>a {
+        background: rgba(158, 188, 226, .21);
+    }
+    .toc .active-current>a:hover {
+        background: rgba(158, 188, 226, .21);
+    }
     li:hover {
         background: none;
         li:hover {
